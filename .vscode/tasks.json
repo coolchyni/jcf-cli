@@ -43,7 +43,7 @@
         "test.pas",
         "-clarify",
         "-inplace",
-        "-config=Output/jcf.xml"
+        "-config=Output/JCFSettings.cfg"
       ],
       "presentation": {
         // open test.pas file to see the result

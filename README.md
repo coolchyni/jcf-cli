@@ -9,7 +9,7 @@ I took [Jedi Code Formatter](http://jedicodeformat.sourceforge.net/) (JCF) from 
 3. Start your Lazarus IDE and open `jcf.lpi` project within `jcf-cli/CommandLine/Lazarus` folder.
 4. Build it via Lazarus' **Run** → **Build** menu.
 5. Wait while Lazarus is building the JCF project.
-6. Take the executable `JCF` file from `jcf-cli/Output/Lazarus` folder along with the `jcf.xml` configuration file.
+6. Take the executable `JCF` file from `jcf-cli/Output/Lazarus` folder along with the `JCFSettings.cfg` configuration file.
 7. Just to make sure, test it from Terminal using `./JCF -?` command. It should show the usage manual.
 
 ## How To Build Using VS Code
@@ -39,7 +39,7 @@ I took [Jedi Code Formatter](http://jedicodeformat.sourceforge.net/) (JCF) from 
       "${file}",
       "-clarify",
       "-inplace",
-      "-config=jcf.xml"
+      "-config=JCFSettings.cfg"
     ],
     "presentation": {
       "reveal": "never"

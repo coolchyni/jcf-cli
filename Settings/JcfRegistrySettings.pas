@@ -236,7 +236,7 @@ const
  }
 function DefGetDefaultSettingsFileName: string;
 begin
-  Result := IncludeTrailingPathDelimiter(GetApplicationFolder) + 'jcf.xml';
+  Result := IncludeTrailingPathDelimiter(GetApplicationFolder) + 'JCFSettings.cfg';
 end;
 
 constructor TJCFRegistrySettings.Create;
@@ -423,7 +423,7 @@ begin
   fsInput := fcReg.ReadString(REG_FILES_SECTION, REG_INPUT, '');
 
   fsBackupExtension := fcReg.ReadString(REG_FILES_SECTION, REG_BACKUP_EXT, 'bak');
-  fsOutputExtension := fcReg.ReadString(REG_FILES_SECTION, REG_OUTPUT_EXT, 'jcf');
+  fsOutputExtension := fcReg.ReadString(REG_FILES_SECTION, REG_OUTPUT_EXT, 'out');
 
   ReadStrings(REG_FILES_SECTION, REG_EXCLUSIONS_FILES, fcExclusionsFiles);
   ReadStrings(REG_FILES_SECTION, REG_EXCLUSIONS_DIRS, fcExclusionsDirs);
@@ -589,9 +589,9 @@ begin
     Result := StrLeft(psIn, liMainFileNameLength);
 
     if peMode = cmInPlaceWithBackup then
-      Result := Result + '.' + BackupExtension + lsExt
+      Result := Result + '.' + BackupExtension
     else
-      Result := Result + '.' + OutputExtension + lsExt;
+      Result := Result + '.' + OutputExtension;
   end
   else
     raise Exception.Create('TCodeFormatSettings.Output: bad backup mode ');
@@ -619,8 +619,7 @@ end;
 function TJCFRegistrySettings.GetOutputExtension: string;
 begin
   if fsOutputExtension = '' then
-    //Result := 'out'
-    Result := 'jcf'
+    Result := 'out'
   else
     Result := fsOutputExtension;
 end;
