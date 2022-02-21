@@ -72,3 +72,8 @@ Here's JCF CLI in action within VS Code (with [OmniPascal](http://www.omnipascal
 > **Note:** If you're also interested in my other tasks shown in the demo, see my gist about it [here](https://gist.github.com/pakLebah/dab98067e9a388a3a8d2f5c0b44a7d3f).
 
 Hope it's gonna be useful to other Pascal fellows out there. Have fun! 😊
+
+## Changes
+The normal version from [git-bee/jcf-cli](https://github.com/git-bee/jcf-cli) is not compatible with the official version of [Jedi Code Formatter](http://jedicodeformat.sourceforge.net/).  So I changed it back to compatible with the official version.
+
+Now you can use this execution with [Pascal Formatter](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal-formatter) to format pascal code in vscode.
