@@ -3,98 +3,130 @@
   // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
-    { // shortcut: cmd+shift+B (run build task)
-      "label"  : "JCF: Build Release",
-      "type"   : "shell",
-      "group"  : {
-        "kind"     : "build",
-        "isDefault": true,
+    {
+      "label": "release",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "presentation": {
+        "showReuseMessage": false,
+        "clear": true,
+        "revealProblems": "onProblem"
       },
-      "options": {
-        "cwd"  : "CommandLine/Lazarus",
+      "cwd": "./CommandLine/Lazarus",
+      "cleanExt": "",
+      "buildOption": {
+        "unitOutputDir": "../../out",
+        "outputFile": "../../bin/jcf-osx-64",
+        "targetCPU": "x86_64",
+        "optimizationLevel": 3,
+        "customOptions": [
+          "-Mobjfpc",
+          "-Schi",
+          "-CX",
+          "-XXs",
+          "-B",
+          "-v",
+          "-Fi../../Include",
+          "-Fu../../lazutils"
+        ]
       },
-      "command": "fpc",
-      "args"   : [
-        "JCF.lpr",            // source code file
-        "-Px86_64",           // target platform 64-bit
-        "-Mobjfpc",           // object pascal mode
-        "-Schi",              // pascal syntax setting
-        "-CX",                // generated code setting
-        "-O3",                // code optimization setting
-        "-XXs",               // executable setting
-        "-B",                 // always build all
-        "-v",                 // verbose message
-        "-Fi../../Include",   // include file path
-        "-Fu../../lazutils",  // unit file path
-        "-FU../../Output",    // unit output path
-        "-FE../../Output",    // executable output path
-      ],
-      "problemMatcher": []
-    },
-    { // shortcut: cmd+shift+R (run test task)
-      "label": "JCF: Test CLI Program",
-      "type" : "shell",
+      "problemMatcher": [],
       "group": {
-        "kind"     : "test",
-        "isDefault": true,
-      },
-      "command": "Output/JCF",
-      "args"   : [
-        "test.pas",
-        "-clarify",
-        "-inplace",
-        "-config=Output/JCFSettings.cfg"
-      ],
+        "kind": "build"
+      }
+    },
+    {
+      "label": "release-win32",
+      "file": "JCF.lpr",
+      "type": "fpc",
       "presentation": {
-        // open test.pas file to see the result
-        "reveal": "never"
+        "showReuseMessage": false,
+        "clear": true,
+        "revealProblems": "onProblem"
       },
-      "problemMatcher": []
-    },
-    { // shortcut: none
-      "label"  : "JCF: Clean Files",
-      "type"   : "shell",
-      "command": "rm",
-      "options": {
-        "cwd"  : "Output",
+      "inherited": "release",
+      "buildOption": {
+        "targetOS": "win32",
+        "targetCPU": "i386",
+        "unitOutputDir": "../../out",
+        "outputFile": "../../../fpctoolkit/bin/win32/jcf.exe",
+        "customOptions": []
       },
-      "args"   : [
-        // "JCF",    // executable file
-        "*.a",    // generated linker file
-        "*.o",    // generated object file
-        "*.s",    // generated assembler file
-        "*.out",  // generated formatted code
-        "*.ppu",  // generated unit file
-        "*.res",  // generated resource file
-        "*.rsj",  // generated resource file
-        "*.sh",   // generated script code
-      ],
-      "problemMatcher": []
+      "group": {}
     },
-    { // shortcut: none
-      "label"  : "JCF: Open CLI Project",
-      "type"   : "shell",
-      "command": "code",
-      "args"   : [
-        "CommandLine/Lazarus/JCF.lpr",
-      ],
-      "presentation": {
-        "reveal"    : "never"
+    {
+      "label": "release_aarch64-linux",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "inherited": "release",
+      "buildOption": {
+        "outputFile": "../../../fpctoolkit/bin/aarch64-linux/jcf",
+        "targetOS": "linux",
+        "targetCPU": "aarch64",
+        "customOptions": []
+      }
+    },
+    {
+      "label": "debug_aarch64-linux",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "inherited": "release",
+      "buildOption": {
+        "syntaxMode": "ObjFPC",
+        "outputFile": "../../../fpctoolkit/bin/aarch64-linux/jcf",
+        "targetOS": "linux",
+        "targetCPU": "aarch64",
+        "optimizationLevel": 0,
+        "customOptions": [
+          "-dDEBUG",
+          "-gw2"
+        ]
       },
-      "problemMatcher": []
+      "group": {}
     },
-    { // shortcut: none
-      "label"  : "JCF: Deploy Executable",
-      "type"   : "shell",
-      "command": "mv",
-      "args"   : [
-        "Output/JCF",
-        "~/Documents/pascal/jcf",
-      ],
-      "presentation": {
-        "reveal"    : "silent"
+    {
+      "label": "debug_win32",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "inherited": "release",
+      "buildOption": {
+        "syntaxMode": "ObjFPC",
+        "outputFile": "../../../fpctoolkit/bin/win32/jcf.exe",
+        "targetOS": "win32",
+        "targetCPU": "i386",
+        "optimizationLevel": 0,
+        "customOptions": [
+          "-dDEBUG",
+          "-gw2"
+        ]
       },
-      "problemMatcher": []
+      "group": {
+        "isDefault": true
+      }
     },
+    {
+      "label": "release_x86_64-linux",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "inherited": "release",
+      "buildOption": {
+        "outputFile": "../../../fpctoolkit/bin/x86_64-linux/jcf",
+        "targetOS": "linux",
+        "targetCPU": "x86_64",
+        "customOptions": []
+      }
+    },
+    {
+      "label": "release_macos",
+      "file": "JCF.lpr",
+      "type": "fpc",
+      "inherited": "release",
+      "buildOption": {
+        "outputFile": "../../../fpctoolkit/bin/x86_64-darwin/jcf",
+        "targetOS": "Darwin",
+        "targetCPU": "x86_64",
+        "customOptions": []
+      }
+    }
   ],
 }

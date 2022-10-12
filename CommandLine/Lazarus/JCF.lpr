@@ -28,7 +28,6 @@ See http://www.gnu.org/licenses/gpl.html
   fpc JCF.lpr -Mobjfpc -Scghi -Px86_64 -B -CX -O3 -XXs -v
   -Fi../../Include -Fu../../lazutils -FU../../Output -FE../../Output
 }
-
   {$I JcfGlobal.inc}
 uses
   {$IFDEF UNIX}{$IFDEF UseCThreads}

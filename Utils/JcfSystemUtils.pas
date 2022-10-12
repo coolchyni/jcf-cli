@@ -61,13 +61,13 @@ implementation
 
 uses
   {$ifdef MSWINDOWS}
-    Windows, ShellApi, {$WARNINGS OFF} FileCtrl {$WARNINGS ON}
+    Windows, ShellApi, {$WARNINGS OFF}  {$WARNINGS ON}
   {$endif}
   {$ifdef Unix}
-    Unix
+    Unix,
   {$endif}
   {$ifdef fpc}
-  ,fileutil //, LCLIntf, Dialogs
+  fileutil //, LCLIntf, Dialogs
   {$endif}
   ;
 

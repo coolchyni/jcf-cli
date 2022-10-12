@@ -1,0 +1,35 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "by-gdb",
+            "request": "launch",
+            "name": "Launch(gdb)",
+            "program": "/zhongzhuo/fpc/fpcextend/fpctoolkit/bin/aarch64-linux/jcf",
+            "programArgs": "-inplace -y -config=/root/.vscode-server/extensions/coolchyni.fpctoolkit-1.1.3/bin/jcfsettings.cfg -F /zhongzhuo/tmp/project/project1.lpr",
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "commandsBeforeExec": [
+                "set directories /zhongzhuo/fpc/fpcextend/jcf-cli:/zhongzhuo/fpc/fpcextend/jcf-cli/CommandLine/Lazarus",
+                "show directories "
+            ]
+        },
+        {
+            "type": "by-gdb",
+            "request": "launch",
+            "name": "Launch_win(gdb)",
+            "program": "z:/fpc/fpcextend/fpctoolkit/bin/win32/jcf.exe",
+            "programArgs": "-inplace -y -config=z:/fpc/fpcextend/fpctoolkit/bin/jcfsettings.cfg -F z:/tmp/project/project1.lpr",
+            "cwd": "${workspaceRoot}",
+            "debuggerPath": "C:\\lazarus\\mingw\\i386-win32\\bin\\gdb.exe",
+            "stopAtEntry": false,
+            "commandsBeforeExec": [
+                //"set directories /zhongzhuo/fpc/fpcextend/jcf-cli:/zhongzhuo/fpc/fpcextend/jcf-cli/CommandLine/Lazarus",
+                //"show directories "
+            ]
+        }
+    ]
+}

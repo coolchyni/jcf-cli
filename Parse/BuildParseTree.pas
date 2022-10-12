@@ -285,8 +285,10 @@ type
     property TokenList: TSourceTokenList Read fcTokenList Write fcTokenList;
   end;
 
+{$IFDEF DEBUG}
+{$ASSERTIONS ON} 
+{$ENDIF}
 implementation
-
 uses
   { delphi }
   SysUtils, //Forms,
