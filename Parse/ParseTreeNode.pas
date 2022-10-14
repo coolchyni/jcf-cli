@@ -1,5 +1,5 @@
 unit ParseTreeNode;
-
+{$mode objfpc}{$H+}
 {(*}
 (*------------------------------------------------------------------------------
  Delphi Code formatter source code 
@@ -25,7 +25,7 @@ See http://www.gnu.org/licenses/gpl.html
 ------------------------------------------------------------------------------*)
 {*)}
 
-{$I JcfGlobal.inc}
+//{$I JcfGlobal.inc}
 
 interface
 

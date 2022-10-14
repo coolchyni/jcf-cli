@@ -1,4 +1,5 @@
 {
-    "pascalLanguageServer.trace.server": "verbose"
+    "fpctoolkit.lsp.trace.server": "verbose",
+    //"fpctoolkit.pasls.path": "z:/fpc/fpcextend/fpctoolkit/bin/win32/pasls.exe"
 
 }

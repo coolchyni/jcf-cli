@@ -30,8 +30,8 @@ See http://www.gnu.org/licenses/gpl.html
 ------------------------------------------------------------------------------*)
 {*)}
 
-{$I JcfGlobal.inc}
-
+//{$I JcfGlobal.inc}
+{$mode objfpc}{$H+}
 interface
 
 type

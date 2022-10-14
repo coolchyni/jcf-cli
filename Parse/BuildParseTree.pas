@@ -1,4 +1,5 @@
 unit BuildParseTree;
+{$mode objfpc}{$H+}
 {(*}
 (*------------------------------------------------------------------------------
  Delphi Code formatter source code
@@ -35,7 +36,7 @@ See http://www.gnu.org/licenses/gpl.html
  It is much extended via test cases as that is woefully incomplete
 }
 
-{$I JcfGlobal.inc}
+//{$I JcfGlobal.inc}
 
 interface
 
@@ -419,8 +420,8 @@ begin
   
   Inc(fiTokenCount);
   {$IFNDEF COMMAND_LINE}
-  if (fiTokenCount mod UPDATE_INTERVAL) = 0 then
-     Application.ProcessMessages;
+  //if (fiTokenCount mod UPDATE_INTERVAL) = 0 then
+     //Application.ProcessMessages;
   {$ENDIF}
 
   { add trailing white space
@@ -455,12 +456,12 @@ end;
 
 function TBuildParseTree.PopNode: TParseTreeNode;
 begin
-  Result := fcStack.Pop;
+  Result :=TParseTreeNode( fcStack.Pop);
 end;
 
 function TBuildParseTree.TopNode: TParseTreeNode;
 begin
-  Result := fcStack.Peek;
+  Result :=TParseTreeNode( fcStack.Peek);
 end;
 
 {a unit / type/var name }
